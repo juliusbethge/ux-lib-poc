@@ -8,15 +8,17 @@ import starlightThemeBlack from "starlight-theme-black"
 // https://astro.build/config
 export default defineConfig({
   // TODO: Set to site URL to generate sitemap
-  site: "http://localhost:4321",
+  // TODO: Update favicon
+  site: import.meta.env.SERVER_URL,
   integrations: [
     starlight({
       title: "WDS Shadcn Repository",
       // TODO: Set to the URL of your project's documentation
       editLink: {
-        baseUrl: "http://localhost:4321",
+        baseUrl: import.meta.env.GITHUB_REPO_URL,
       },
       logo: {
+        // TODO: Upload logo with square aspect ratio
         dark: "./src/assets/logo/dark.png",
         light: "./src/assets/logo/light.png",
         replacesTitle: true,
@@ -25,8 +27,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          // TODO: Update the URL to your project's GitHub repository
-          href: "https://github.com/withastro/starlight",
+          href: import.meta.env.GITHUB_REPO_URL,
         },
         {
           icon: "youtube",
@@ -57,14 +58,17 @@ export default defineConfig({
         themes: ["github-dark", "github-light"],
       },
       plugins: [
+        // TODO: Go back to starlight-theme instead
         starlightThemeBlack({
           navLinks: [
             {
+              // TODO: Remove?
               // optional
               label: "Docs",
               link: "/getting-started",
             },
           ],
+          // TODO: Remove?
           //optional
           footerText:
             "Built by [Web Dev Simplified](https://webdevsimplified.com) for use with [Shadcn](https://ui.shadcn.com)",

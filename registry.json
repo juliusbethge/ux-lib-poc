@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "WDS Shadcn Repository",
-  "homepage": "TODO: Add your homepage URL",
+  "homepage": "https://wds-shadcn-repository.netlify.app",
   "items": [
     {
       "name": "loading-swap",

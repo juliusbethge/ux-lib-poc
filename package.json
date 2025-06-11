@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "shadcn build && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "registry:build": "shadcn build"
