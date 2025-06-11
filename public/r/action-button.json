@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "action-button",
+  "type": "registry:component",
+  "description": "A button that performs an action when clicked and optionally asks for user confirmation.",
+  "registryDependencies": [
+    "alert-dialog",
+    "button",
+    "sonner",
+    "https://wds-shadcn-repository.netlify.app/r/loading-swap.json"
+  ],
+  "files": [
+    {
+      "path": "src/registry/new-york/action-button/components/action-button.tsx",
+      "content": "\"use client\"\r\n\r\nimport { type ComponentProps, type ReactNode, useTransition } from \"react\"\r\nimport { Button } from \"@/components/ui/button\"\r\nimport { toast } from \"sonner\"\r\nimport { LoadingSwap } from \"@/components/ui/loading-swap\"\r\nimport {\r\n  AlertDialog,\r\n  AlertDialogDescription,\r\n  AlertDialogTitle,\r\n  AlertDialogAction,\r\n  AlertDialogCancel,\r\n  AlertDialogContent,\r\n  AlertDialogFooter,\r\n  AlertDialogHeader,\r\n  AlertDialogTrigger,\r\n} from \"@/components/ui/alert-dialog\"\r\n\r\nexport function ActionButton({\r\n  action,\r\n  requireAreYouSure = false,\r\n  areYouSureDescription = \"This action cannot be undone.\",\r\n  ...props\r\n}: ComponentProps<typeof Button> & {\r\n  action: () => Promise<{ error: boolean; message?: string }>\r\n  requireAreYouSure?: boolean\r\n  areYouSureDescription?: ReactNode\r\n}) {\r\n  const [isLoading, startTransition] = useTransition()\r\n\r\n  function performAction() {\r\n    startTransition(async () => {\r\n      const data = await action()\r\n      if (data.error) toast.error(data.message ?? \"Error\")\r\n    })\r\n  }\r\n\r\n  if (requireAreYouSure) {\r\n    return (\r\n      <AlertDialog open={isLoading ? true : undefined}>\r\n        <AlertDialogTrigger asChild>\r\n          <Button {...props} />\r\n        </AlertDialogTrigger>\r\n        <AlertDialogContent>\r\n          <AlertDialogHeader>\r\n            <AlertDialogTitle>Are you sure?</AlertDialogTitle>\r\n            <AlertDialogDescription>\r\n              {areYouSureDescription}\r\n            </AlertDialogDescription>\r\n          </AlertDialogHeader>\r\n          <AlertDialogFooter>\r\n            <AlertDialogCancel>Cancel</AlertDialogCancel>\r\n            <AlertDialogAction disabled={isLoading} onClick={performAction}>\r\n              <LoadingSwap isLoading={isLoading}>Yes</LoadingSwap>\r\n            </AlertDialogAction>\r\n          </AlertDialogFooter>\r\n        </AlertDialogContent>\r\n      </AlertDialog>\r\n    )\r\n  }\r\n\r\n  return (\r\n    <Button\r\n      {...props}\r\n      disabled={props.disabled ?? isLoading}\r\n      onClick={e => {\r\n        performAction()\r\n        props.onClick?.(e)\r\n      }}\r\n    >\r\n      <LoadingSwap\r\n        isLoading={isLoading}\r\n        className=\"inline-flex items-center gap-2\"\r\n      >\r\n        {props.children}\r\n      </LoadingSwap>\r\n    </Button>\r\n  )\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

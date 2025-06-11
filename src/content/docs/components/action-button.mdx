@@ -1,0 +1,51 @@
+---
+title: Action Button
+description: A button that performs an action when clicked and optionally asks for user confirmation.
+---
+
+import { ActionButton } from "@/registry/new-york/action-button/components/action-button"
+import { Button } from "@/components/ui/button"
+import CodePreview from "@/components/markdown/code-preview/code-preview.astro"
+import CliCommandCode from "@/components/markdown//cli-command-code/cli-command-code.astro"
+import { Toaster } from "@/components/ui/sonner"
+
+<Toaster client:load />
+
+<CodePreview demo="action-button/basic" />
+
+## Installation
+
+<CliCommandCode componentName="action-button" />
+
+## Usage
+
+```tsx
+import { ActionButton } from "@/components/ui/action-button"
+```
+
+```tsx
+import { updateSettings } from "@/actions/settings"
+
+const settings = { name: "Kyle" }
+
+<ActionButton
+  action={updateSettings.bind(null, settings)}
+  requireAreYouSure
+>
+  Save Settings
+</ActionButton>
+```
+
+## Examples
+
+### Default
+
+<CodePreview demo="action-button/default" />
+
+### Require Are You Sure
+
+<CodePreview demo="action-button/require-are-you-sure" />
+
+### With Error
+
+<CodePreview demo="action-button/error" />

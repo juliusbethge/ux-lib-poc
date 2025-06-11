@@ -1,0 +1,7 @@
+---
+import Default from "@astrojs/starlight/components/PageFrame.astro"
+import { Toaster } from "@/components/ui/sonner"
+---
+
+<Default><slot /></Default>
+<Toaster client:load />

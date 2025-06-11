@@ -10,7 +10,24 @@
       "files": [
         {
           "path": "src/registry/new-york/loading-swap/components/loading-swap.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "action-button",
+      "description": "A button that performs an action when clicked and optionally asks for user confirmation.",
+      "type": "registry:component",
+      "registryDependencies": [
+        "alert-dialog",
+        "button",
+        "sonner",
+        "https://wds-shadcn-repository.netlify.app/r/loading-swap.json"
+      ],
+      "files": [
+        {
+          "path": "src/registry/new-york/action-button/components/action-button.tsx",
+          "type": "registry:ui"
         }
       ]
     }

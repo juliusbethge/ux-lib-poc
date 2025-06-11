@@ -7,7 +7,7 @@
     {
       "path": "src/registry/new-york/loading-swap/components/loading-swap.tsx",
       "content": "import { cn } from \"@/lib/utils\"\r\nimport { Loader2Icon } from \"lucide-react\"\r\nimport type { ReactNode } from \"react\"\r\n\r\nexport function LoadingSwap({\r\n  isLoading,\r\n  children,\r\n  className,\r\n}: {\r\n  isLoading: boolean\r\n  children: ReactNode\r\n  className?: string\r\n}) {\r\n  return (\r\n    <div className=\"grid grid-cols-1 items-center justify-items-center\">\r\n      <div\r\n        className={cn(\r\n          \"col-start-1 col-end-2 row-start-1 row-end-2 w-full\",\r\n          isLoading ? \"invisible\" : \"visible\",\r\n          className,\r\n        )}\r\n      >\r\n        {children}\r\n      </div>\r\n      <div\r\n        className={cn(\r\n          \"col-start-1 col-end-2 row-start-1 row-end-2\",\r\n          isLoading ? \"visible\" : \"invisible\",\r\n          className,\r\n        )}\r\n      >\r\n        <Loader2Icon className=\"animate-spin\" />\r\n      </div>\r\n    </div>\r\n  )\r\n}\r\n",
-      "type": "registry:component"
+      "type": "registry:ui"
     }
   ]
 }

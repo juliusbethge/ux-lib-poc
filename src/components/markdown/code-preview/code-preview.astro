@@ -3,10 +3,14 @@ import { Code } from "@astrojs/starlight/components"
 import { CodePreviewInternal } from "./_code-preview-internal"
 import fs from "node:fs/promises"
 
-type DemoTypes = "loading-swap/basic"
+type DemoTypes =
+  | "loading-swap/basic"
+  | "action-button/basic"
+  | "action-button/default"
+  | "action-button/require-are-you-sure"
+  | "action-button/error"
 
-// prettier-ignore
-export type Demo = DemoTypes extends `${infer T}/${infer U}` ? `${T}/${U}` : never
+export type Demo = DemoTypes
 
 type Props = { demo: Demo }
 

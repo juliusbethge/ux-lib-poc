@@ -65,6 +65,9 @@ export default defineConfig({
       expressiveCode: {
         themes: ["github-dark", "github-light"],
       },
+      // components: {
+      //   PageFrame: "./src/components/overrides/page-frame.astro",
+      // },
       plugins: [
         // TODO: Go back to starlight-theme instead
         starlightThemeBlack({
