@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "WDS Shadcn Repository",
+  "homepage": "TODO: Add your homepage URL",
+  "items": [
+    {
+      "name": "loading-swap",
+      "description": "Swaps content with a loading spinner without layout shift.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "src/registry/new-york/loading-swap/components/loading-swap.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
