@@ -23,7 +23,7 @@ export default defineConfig({
       title: "WDS Shadcn Repository",
       // TODO: Set to the URL of your project's documentation
       editLink: {
-        baseUrl: GITHUB_REPO_URL,
+        baseUrl: `${GITHUB_REPO_URL}/tree/main`,
       },
       logo: {
         // TODO: Upload logo with square aspect ratio
