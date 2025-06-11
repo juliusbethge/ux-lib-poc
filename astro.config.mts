@@ -5,17 +5,25 @@ import react from "@astrojs/react"
 import tailwindcss from "@tailwindcss/vite"
 import starlightThemeBlack from "starlight-theme-black"
 
+import { loadEnv } from "vite"
+
+const { GITHUB_REPO_URL, SERVER_URL } = loadEnv(
+  process.env.NODE_ENV!,
+  process.cwd(),
+  "",
+)
+
 // https://astro.build/config
 export default defineConfig({
   // TODO: Set to site URL to generate sitemap
   // TODO: Update favicon
-  site: import.meta.env.SERVER_URL,
+  site: SERVER_URL,
   integrations: [
     starlight({
       title: "WDS Shadcn Repository",
       // TODO: Set to the URL of your project's documentation
       editLink: {
-        baseUrl: import.meta.env.GITHUB_REPO_URL,
+        baseUrl: GITHUB_REPO_URL,
       },
       logo: {
         // TODO: Upload logo with square aspect ratio
@@ -27,7 +35,7 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: import.meta.env.GITHUB_REPO_URL,
+          href: GITHUB_REPO_URL,
         },
         {
           icon: "youtube",
