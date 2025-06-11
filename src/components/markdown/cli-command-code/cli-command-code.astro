@@ -4,8 +4,7 @@ import { CliCommandCodeInternal } from "./_cli-command-code-internal"
 type Props = { componentName: string }
 
 const { componentName } = Astro.props
-// TODO: Use env for registry URL
-const baseCommand = `shadcn@latest add http://localhost:3000/r/${componentName}.json`
+const baseCommand = `shadcn@latest add ${import.meta.env.SERVER_URL}/r/${componentName}.json`
 const commands = [
   { label: "pnpm", code: `pnpm dlx ${baseCommand}` },
   { label: "npm", code: `npx ${baseCommand}` },
