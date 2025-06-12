@@ -38,7 +38,7 @@
       "registryDependencies": ["input"],
       "files": [
         {
-          "path": "src/registry/new-york/ui/action-button/components/number-input.tsx",
+          "path": "src/registry/new-york/ui/number-input/components/number-input.tsx",
           "type": "registry:ui"
         }
       ]

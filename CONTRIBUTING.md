@@ -77,7 +77,7 @@ npm run dev
 To test that your registry builds correctly, you can run the following command:
 
 ```bash
-npm build:registry
+npm registry:build
 ```
 
 Then try installing any component from the registry in a new project using the `shadcn add` command:
