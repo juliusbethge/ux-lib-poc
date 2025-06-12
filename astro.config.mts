@@ -18,7 +18,7 @@ export default defineConfig({
   site: SERVER_URL,
   env: {
     schema: {
-      GITHUB_REPO_URL: envField.string({ context: "server", access: "public" }),
+      GITHUB_REPO_URL: envField.string({ context: "client", access: "public" }),
       SERVER_URL: envField.string({ context: "client", access: "public" }),
     },
   },
