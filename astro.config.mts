@@ -13,6 +13,7 @@ const { GITHUB_REPO_URL, SERVER_URL } = loadEnv(
   "",
 )
 
+// TODO: Add type safety to env variables
 // https://astro.build/config
 export default defineConfig({
   // TODO: Set to site URL to generate sitemap
@@ -62,9 +63,6 @@ export default defineConfig({
           autogenerate: { directory: "components" },
         },
       ],
-      expressiveCode: {
-        themes: ["github-dark", "github-light"],
-      },
       // components: {
       //   PageFrame: "./src/components/overrides/page-frame.astro",
       // },
@@ -74,9 +72,12 @@ export default defineConfig({
           navLinks: [
             {
               // TODO: Remove?
-              // optional
               label: "Docs",
-              link: "/getting-started",
+              link: "/getting-started/installation",
+            },
+            {
+              label: "Components",
+              link: "/components",
             },
           ],
           // TODO: Remove?

@@ -18,11 +18,11 @@ export function CodePreviewInternal({
         <TabsTrigger value="preview">Preview</TabsTrigger>
         <TabsTrigger value="code">Code</TabsTrigger>
       </TabsList>
-      <Card className="h-96 overflow-y-auto p-0 rounded-lg no-scrollbar">
+      <Card className="h-[450px] overflow-y-auto p-0 rounded-lg no-scrollbar bg-transparent">
         <CardContent className="h-full p-0">
           <TabsContent
             value="preview"
-            className="flex items-center justify-center h-full p-4"
+            className="flex items-center justify-center h-full p-4 [&_input]:max-w-xs"
           >
             {/* TODO: Add fallback */}
             <Suspense>
@@ -30,7 +30,9 @@ export function CodePreviewInternal({
             </Suspense>
           </TabsContent>
           {/* TODO: The code is making a weird pop in where it zooms to the correct size right when you open it */}
-          <TabsContent value="code">{children}</TabsContent>
+          <TabsContent value="code" className="h-full">
+            {children}
+          </TabsContent>
         </CardContent>
       </Card>
     </Tabs>

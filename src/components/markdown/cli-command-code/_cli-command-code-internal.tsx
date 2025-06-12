@@ -1,8 +1,14 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useLocalStorage } from "@/hooks/useLocalStorage"
-import { ClipboardIcon, TerminalIcon } from "lucide-react"
+import { CheckIcon, ClipboardIcon, TerminalIcon, XIcon } from "lucide-react"
+import { useState } from "react"
 
 export function CliCommandCodeInternal({
   commands,
@@ -16,18 +22,18 @@ export function CliCommandCodeInternal({
     "cli-method",
     commands[0].label,
   )
+  const [copyState, setCopyState] = useState<"idle" | "copied" | "error">(
+    "idle",
+  )
 
   function handleCopy() {
     const command = commands.find(cmd => cmd.label === selectedTab)
     if (command) {
       navigator.clipboard
         .writeText(command.code)
-        .then(() => {
-          console.log("Command copied to clipboard:", command.code)
-        })
-        .catch(err => {
-          console.error("Failed to copy command:", err)
-        })
+        .then(() => setCopyState("copied"))
+        .catch(() => setCopyState("error"))
+        .finally(() => setTimeout(() => setCopyState("idle"), 2000))
     }
   }
 
@@ -54,13 +60,26 @@ export function CliCommandCodeInternal({
                 </TabsTrigger>
               ))}
             </TabsList>
-            <Button
-              onClick={handleCopy}
-              variant="ghost"
-              className="ml-auto text-muted-foreground size-8"
-            >
-              <ClipboardIcon />
-            </Button>
+            <Popover open={copyState !== "idle"}>
+              <PopoverTrigger asChild>
+                <Button
+                  onClick={handleCopy}
+                  variant="ghost"
+                  className="ml-auto text-muted-foreground size-8"
+                >
+                  {copyState === "idle" ? (
+                    <ClipboardIcon />
+                  ) : copyState === "copied" ? (
+                    <CheckIcon />
+                  ) : (
+                    <XIcon className="text-destructive" />
+                  )}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent side="left" className="text-sm p-2 px-4 w-min">
+                {copyState === "error" ? "Error!" : "Copied"}
+              </PopoverContent>
+            </Popover>
           </div>
           <div>
             {commands.map(command => (

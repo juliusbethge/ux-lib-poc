@@ -1,0 +1,36 @@
+---
+title: Number Input
+description: An input that returns a number value and automatically handles invalid inputs.
+---
+
+import { NumberInput } from "@/registry/new-york/number-input/components/number-input"
+import CodePreview from "@/components/markdown/code-preview/code-preview.astro"
+import CliCommandCode from "@/components/markdown//cli-command-code/cli-command-code.astro"
+import { Toaster } from "@/components/ui/sonner"
+
+<Toaster client:load />
+
+<CodePreview demo="number-input/basic" />
+
+## Installation
+
+<CliCommandCode componentName="number-input" />
+
+## Usage
+
+```tsx
+import { useState } from "react"
+import { NumberInput } from "@/components/ui/NumberInput"
+```
+
+```tsx
+const [value, setValue] = useState<number | null>(null)
+
+<NumberInput value={value} onChange={setValue} />
+```
+
+## Examples
+
+### Form
+
+<CodePreview demo="number-input/form" />

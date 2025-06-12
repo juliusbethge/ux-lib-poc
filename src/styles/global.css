@@ -149,6 +149,40 @@
     > :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) {
     @apply border-none;
   }
+
+  *::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .entry-title:not(a) {
+    @apply text-muted-foreground !font-normal;
+  }
+
+  .container-sidebar-entry > a {
+    @apply !text-foreground;
+  }
+
+  .container-wrapper,
+  .container-section {
+    @apply border-none;
+  }
+
+  .container-wrapper > .container > .hero {
+    @apply !pb-0 text-center;
+
+    & > .title,
+    & > .tagline {
+      @apply text-center w-full;
+    }
+
+    & > .actions {
+      @apply !justify-center;
+    }
+  }
+
+  .logo-size {
+    @apply !size-10;
+  }
 }
 
 @layer utilities {

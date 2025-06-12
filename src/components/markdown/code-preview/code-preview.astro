@@ -9,6 +9,8 @@ type DemoTypes =
   | "action-button/default"
   | "action-button/require-are-you-sure"
   | "action-button/error"
+  | "number-input/basic"
+  | "number-input/form"
 
 export type Demo = DemoTypes
 
@@ -29,6 +31,10 @@ const fileContents = (
 
 <div>
   <CodePreviewInternal demo={demo} client:load>
-    <Code code={fileContents} lang="tsx" class="rounded-none" />
+    <Code
+      code={fileContents}
+      lang="tsx"
+      class="rounded-none h-full [&>figure.frame]:h-full [&>figure.frame>pre]:h-full"
+    />
   </CodePreviewInternal>
 </div>
