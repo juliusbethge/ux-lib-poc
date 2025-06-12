@@ -1,12 +1,13 @@
 ---
 import { CliCommandCodeInternal } from "./_cli-command-code-internal"
+import { SERVER_URL } from "astro:env/server"
 
 type Props = {
   componentName: "loading-swap" | "action-button" | "number-input"
 }
 
 const { componentName } = Astro.props
-const baseCommand = `shadcn@latest add ${import.meta.env.SERVER_URL}/r/${componentName}.json`
+const baseCommand = `shadcn@latest add ${SERVER_URL}/r/${componentName}.json`
 const commands = [
   { label: "pnpm", code: `pnpm dlx ${baseCommand}` },
   { label: "npm", code: `npx ${baseCommand}` },
@@ -17,5 +18,5 @@ const commands = [
 
 <div>
   <!-- TODO: Only client load or just deal with hydration issues -->
-  <CliCommandCodeInternal client:only commands={commands} />
+  <CliCommandCodeInternal client:load commands={commands} />
 </div>

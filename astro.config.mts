@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config"
+import { defineConfig, envField } from "astro/config"
 import starlight from "@astrojs/starlight"
 import react from "@astrojs/react"
 import tailwindcss from "@tailwindcss/vite"
@@ -16,18 +16,32 @@ const { GITHUB_REPO_URL, SERVER_URL } = loadEnv(
 // TODO: Add type safety to env variables
 // https://astro.build/config
 export default defineConfig({
-  // TODO: Set to site URL to generate sitemap
-  // TODO: Update favicon
   site: SERVER_URL,
+  env: {
+    schema: {
+      GITHUB_REPO_URL: envField.string({ context: "server", access: "public" }),
+      SERVER_URL: envField.string({ context: "server", access: "public" }),
+    },
+  },
   integrations: [
     starlight({
+      favicon: "/favicon.svg",
+      head: [
+        // Add ICO favicon fallback for Safari.
+        {
+          tag: "link",
+          attrs: {
+            rel: "icon",
+            href: "/favicon.ico",
+            sizes: "32x32",
+          },
+        },
+      ],
       title: "WDS Shadcn Registry",
-      // TODO: Set to the URL of your project's documentation
       editLink: {
         baseUrl: `${GITHUB_REPO_URL}/tree/main`,
       },
       logo: {
-        // TODO: Upload logo with square aspect ratio
         dark: "./src/assets/logo/dark.png",
         light: "./src/assets/logo/light.png",
         replacesTitle: true,
@@ -63,15 +77,10 @@ export default defineConfig({
           autogenerate: { directory: "components" },
         },
       ],
-      // components: {
-      //   PageFrame: "./src/components/overrides/page-frame.astro",
-      // },
       plugins: [
-        // TODO: Go back to starlight-theme instead
         starlightThemeBlack({
           navLinks: [
             {
-              // TODO: Remove?
               label: "Docs",
               link: "/getting-started/installation",
             },
@@ -80,8 +89,6 @@ export default defineConfig({
               link: "/components",
             },
           ],
-          // TODO: Remove?
-          //optional
           footerText:
             "Built by [Web Dev Simplified](https://webdevsimplified.com) for use with [Shadcn](https://ui.shadcn.com)",
         }),
@@ -89,7 +96,6 @@ export default defineConfig({
     }),
     react(),
   ],
-
   vite: {
     plugins: [tailwindcss()],
   },

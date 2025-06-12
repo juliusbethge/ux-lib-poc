@@ -2,6 +2,7 @@ import { lazy, Suspense, type ReactNode } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import type { Demo } from "./code-preview.astro"
+import { Loader2Icon } from "lucide-react"
 
 export function CodePreviewInternal({
   demo,
@@ -24,12 +25,12 @@ export function CodePreviewInternal({
             value="preview"
             className="flex items-center justify-center h-full p-4 [&_input]:max-w-xs"
           >
-            {/* TODO: Add fallback */}
-            <Suspense>
+            <Suspense
+              fallback={<Loader2Icon className="animate-spin size-16" />}
+            >
               <Component />
             </Suspense>
           </TabsContent>
-          {/* TODO: The code is making a weird pop in where it zooms to the correct size right when you open it */}
           <TabsContent value="code" className="h-full">
             {children}
           </TabsContent>
