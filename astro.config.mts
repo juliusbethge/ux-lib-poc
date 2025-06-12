@@ -43,6 +43,7 @@ export default defineConfig({
             rel: "icon",
             href: "/favicon-dark.svg",
             media: "(prefers-color-scheme: dark)",
+            type: "image/svg+xml",
           },
         },
         // Add light mode favicon.
@@ -52,6 +53,7 @@ export default defineConfig({
             rel: "icon",
             href: "/favicon.svg",
             media: "(prefers-color-scheme: light)",
+            type: "image/svg+xml",
           },
         },
       ],
