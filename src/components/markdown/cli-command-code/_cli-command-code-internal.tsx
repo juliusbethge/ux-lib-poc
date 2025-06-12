@@ -86,10 +86,10 @@ export function CliCommandCodeInternal({
               <TabsContent
                 key={command.label}
                 value={command.label}
-                className="overflow-x-auto text-muted-foreground px-4 py-3.5 no-scrollbar"
+                className="overflow-x-auto text-muted-foreground py-3.5 no-scrollbar"
               >
                 <pre>
-                  <code>{command.code}</code>
+                  <code className="px-4">{command.code}</code>
                 </pre>
               </TabsContent>
             ))}
