@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "WDS Shadcn Repository",
-  "homepage": "https://wds-shadcn-repository.netlify.app",
+  "name": "WDS Shadcn Registry",
+  "homepage": "https://wds-shadcn-registry.netlify.app",
   "items": [
     {
       "name": "loading-swap",
@@ -9,7 +9,7 @@
       "type": "registry:component",
       "files": [
         {
-          "path": "src/registry/new-york/loading-swap/components/loading-swap.tsx",
+          "path": "src/registry/new-york/ui/loading-swap/components/loading-swap.tsx",
           "type": "registry:ui"
         }
       ]
@@ -22,11 +22,23 @@
         "alert-dialog",
         "button",
         "sonner",
-        "https://wds-shadcn-repository.netlify.app/r/loading-swap.json"
+        "https://wds-shadcn-registry.netlify.app/r/loading-swap.json"
       ],
       "files": [
         {
-          "path": "src/registry/new-york/action-button/components/action-button.tsx",
+          "path": "src/registry/new-york/ui/action-button/components/action-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "number-input",
+      "description": "An input that returns a number value and automatically handles invalid inputs.",
+      "type": "registry:component",
+      "registryDependencies": ["input"],
+      "files": [
+        {
+          "path": "src/registry/new-york/ui/action-button/components/number-input.tsx",
           "type": "registry:ui"
         }
       ]

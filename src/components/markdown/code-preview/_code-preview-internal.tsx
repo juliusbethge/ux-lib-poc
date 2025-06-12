@@ -42,7 +42,7 @@ export function CodePreviewInternal({
 function getComponent(component: string, demo: string) {
   return lazy(async () => {
     const module = await import(
-      `../../../registry/examples/${component}/${demo}.tsx`
+      `../../../registry/new-york/examples/${component}/${demo}.tsx`
     )
     const namedExport = Object.keys(module).find(
       key => typeof module[key] === "function",

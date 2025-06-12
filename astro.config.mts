@@ -21,7 +21,7 @@ export default defineConfig({
   site: SERVER_URL,
   integrations: [
     starlight({
-      title: "WDS Shadcn Repository",
+      title: "WDS Shadcn Registry",
       // TODO: Set to the URL of your project's documentation
       editLink: {
         baseUrl: `${GITHUB_REPO_URL}/tree/main`,

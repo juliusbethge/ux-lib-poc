@@ -1,6 +1,6 @@
 "use client"
 
-import { NumberInput } from "@/registry/new-york/number-input/components/number-input"
+import { NumberInput } from "@/registry/new-york/ui/number-input/components/number-input"
 import { useState } from "react"
 
 export function BasicNumberInput() {

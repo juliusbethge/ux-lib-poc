@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { LoadingSwap } from "@/registry/new-york/loading-swap/components/loading-swap"
+import { LoadingSwap } from "@/registry/new-york/ui/loading-swap/components/loading-swap"
 import { useState } from "react"
 
 export function LoadingButton() {
