@@ -19,10 +19,10 @@ type Props = { demo: Demo }
 const { demo } = Astro.props
 const componentName = demo.split("/")[0] ?? ""
 const fileContents = (
-  await fs.readFile(`./src/registry/examples/${demo}.tsx`, "utf-8")
+  await fs.readFile(`./src/registry/new-york/examples/${demo}.tsx`, "utf-8")
 ).replace(
   new RegExp(
-    `from "@\\/registry\\/new-york\\/${componentName}\\/components\\/${componentName}"`,
+    `from "@\\/registry\\/new-york\\/ui\\/${componentName}\\/components\\/${componentName}"`,
     "g",
   ),
   `from "@/components/ui/${componentName}"`,
