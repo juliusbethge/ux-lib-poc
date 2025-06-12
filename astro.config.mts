@@ -13,7 +13,6 @@ const { GITHUB_REPO_URL, SERVER_URL } = loadEnv(
   "",
 )
 
-// TODO: Add type safety to env variables
 // https://astro.build/config
 export default defineConfig({
   site: SERVER_URL,
@@ -25,7 +24,9 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      favicon: "/favicon.svg",
+      components: {
+        Head: "./src/components/overrides/head.astro",
+      },
       head: [
         // Add ICO favicon fallback for Safari.
         {
@@ -33,7 +34,24 @@ export default defineConfig({
           attrs: {
             rel: "icon",
             href: "/favicon.ico",
-            sizes: "32x32",
+          },
+        },
+        // Add dark mode favicon.
+        {
+          tag: "link",
+          attrs: {
+            rel: "icon",
+            href: "/favicon-dark.svg",
+            media: "(prefers-color-scheme: dark)",
+          },
+        },
+        // Add light mode favicon.
+        {
+          tag: "link",
+          attrs: {
+            rel: "icon",
+            href: "/favicon.svg",
+            media: "(prefers-color-scheme: light)",
           },
         },
       ],

@@ -1,0 +1,18 @@
+---
+const { head } = Astro.locals.starlightRoute
+
+// By default, Astro renders the default favicon before the media specific favicons which results in the media specific favicons not being used.
+const sortedHead = head.toSorted((a, b) => {
+  if (a.tag !== "link" || b.tag !== "link") return 0
+  if (typeof a.attrs === "object" && a.attrs.media) return 1
+  if (typeof b.attrs === "object" && b.attrs.media) return -1
+
+  return 0
+})
+---
+
+{
+  sortedHead.map(({ tag: Tag, attrs, content }) => (
+    <Tag {...attrs} set:html={content} />
+  ))
+}
