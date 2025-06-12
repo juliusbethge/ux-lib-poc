@@ -5,13 +5,6 @@ const { head } = Astro.locals.starlightRoute
 // This code forces the default favicon to only be used when the user has no preference for light or dark mode instead of always being used.
 const sortedHead = head.map(h => {
   if (h.tag !== "link") return h
-  console.log(
-    typeof h.attrs !== "object" ||
-      typeof h.attrs.rel !== "string" ||
-      !h.attrs.rel.includes("icon") ||
-      h.attrs.media != undefined,
-  )
-
   if (
     typeof h.attrs !== "object" ||
     typeof h.attrs.rel !== "string" ||

@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { useLocalStorage } from "@/hooks/useLocalStorage"
 import { CheckIcon, ClipboardIcon, TerminalIcon, XIcon } from "lucide-react"
 import { useState } from "react"
@@ -60,8 +60,8 @@ export function CliCommandCodeInternal({
                 </TabsTrigger>
               ))}
             </TabsList>
-            <Popover open={copyState !== "idle"}>
-              <PopoverTrigger asChild>
+            <Tooltip open={copyState !== "idle"}>
+              <TooltipTrigger asChild>
                 <Button
                   onClick={handleCopy}
                   variant="ghost"
@@ -75,11 +75,11 @@ export function CliCommandCodeInternal({
                     <XIcon className="text-destructive" />
                   )}
                 </Button>
-              </PopoverTrigger>
-              <PopoverContent side="left" className="text-sm p-2 px-4 w-min">
+              </TooltipTrigger>
+              <TooltipContent side="left">
                 {copyState === "error" ? "Error!" : "Copied"}
-              </PopoverContent>
-            </Popover>
+              </TooltipContent>
+            </Tooltip>
           </div>
           <div>
             {commands.map(command => (
