@@ -22,7 +22,7 @@ const fileContents = (
   await fs.readFile(`./src/registry/new-york/examples/${demo}.tsx`, "utf-8")
 ).replace(
   new RegExp(
-    `from "@\\/registry\\/new-york\\/ui\\/${componentName}\\/components\\/${componentName}"`,
+    `from "@\\/registry\\/new-york\\/items\\/${componentName}\\/components\\/${componentName}"`,
     "g",
   ),
   `from "@/components/ui/${componentName}"`,

@@ -24,7 +24,7 @@ src
 |   └── getting-started
 └── registry/new-york
     ├── examples
-    └── ui
+    └── items
 ```
 
 | Path                             | Description                                                                      |
@@ -34,7 +34,7 @@ src
 | `src/content/docs/components`    | Individual documentation pages for each component.                               |
 | `src/content/getting-started`    | One off guides for the getting started section of the documentation.             |
 | `src/registry/new-york/examples` | Example files used for rendering in the documentation pages for each component.  |
-| `src/registry/new-york/ui`       | The implementation of the component that will be installed in the users project. |
+| `src/registry/new-york/items`    | The implementation of the component that will be installed in the users project. |
 
 ## Development
 
