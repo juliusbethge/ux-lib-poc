@@ -47,10 +47,10 @@ body:
   - type: checkboxes
     id: terms
     attributes:
-    label: Before submitting
-    description: By submitting this issue, you agree to follow our [Contributing Guidelines](https://github.com/WebDevSimplified/wds-shadcn-registry/blob/main/CONTRIBUTING.md).
-    options:
-      - label: I've made research efforts and searched the documentation
-        required: true
-      - label: I've searched for existing issues
-        required: true
+      label: Before submitting
+      description: By submitting this issue, you agree to follow our [Contributing Guidelines](https://github.com/WebDevSimplified/wds-shadcn-registry/blob/main/CONTRIBUTING.md).
+      options:
+        - label: I've made research efforts and searched the documentation
+          required: true
+        - label: I've searched for existing issues
+          required: true
