@@ -12,14 +12,10 @@ export function NumberInput({
   return (
     <Input
       {...props}
-      onChange={
-        onChange === undefined
-          ? undefined
-          : e => {
-              const number = e.target.valueAsNumber
-              onChange(isNaN(number) ? null : number)
-            }
-      }
+      onChange={e => {
+        const number = e.target.valueAsNumber
+        onChange(isNaN(number) ? null : number)
+      }}
       value={value ?? ""}
       type="number"
     />
