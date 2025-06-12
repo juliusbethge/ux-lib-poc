@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import type { Demo } from "./code-preview.astro"
 import { Loader2Icon } from "lucide-react"
+import { OpenInV0Button } from "@/components/open-in-v0-button"
+import { SERVER_URL } from "astro:env/client"
 
 export function CodePreviewInternal({
   demo,
@@ -11,13 +13,22 @@ export function CodePreviewInternal({
   demo: Demo
   children: ReactNode
 }) {
-  const Component = getComponent(demo.split("/")[0], demo.split("/")[1])
+  const componentName = demo.split("/")[0]
+  const Component = getComponent(componentName, demo.split("/")[1])
 
   return (
     <Tabs defaultValue="preview" className="not-content">
-      <TabsList>
-        <TabsTrigger value="preview">Preview</TabsTrigger>
-        <TabsTrigger value="code">Code</TabsTrigger>
+      <TabsList className="w-full">
+        <TabsTrigger value="preview" className="flex-grow-0">
+          Preview
+        </TabsTrigger>
+        <TabsTrigger value="code" className="flex-grow-0">
+          Code
+        </TabsTrigger>
+        <OpenInV0Button
+          url={`${SERVER_URL}/r/${componentName}.json`}
+          className="ml-auto"
+        />
       </TabsList>
       <Card className="h-[450px] overflow-y-auto p-0 rounded-lg no-scrollbar bg-transparent">
         <CardContent className="h-full p-0">
