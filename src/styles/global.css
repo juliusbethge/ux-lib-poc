@@ -183,6 +183,10 @@
   .logo-size {
     @apply !size-10;
   }
+
+  .sl-link-card a {
+    @apply !no-underline;
+  }
 }
 
 @layer utilities {
