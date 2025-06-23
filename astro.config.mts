@@ -96,6 +96,24 @@ export default defineConfig({
           label: "Components",
           autogenerate: { directory: "components" },
         },
+        {
+          label: "Contributing",
+          items: [
+            { label: "Introduction", slug: "contributing" },
+            {
+              label: "Component Request",
+              slug: "contributing/component-request",
+            },
+            {
+              label: "Feature Request",
+              slug: "contributing/feature-request",
+            },
+            {
+              label: "Contributing Code",
+              slug: "contributing/contributing-code",
+            },
+          ],
+        },
       ],
       plugins: [
         starlightThemeBlack({
@@ -107,6 +125,10 @@ export default defineConfig({
             {
               label: "Components",
               link: "/components",
+            },
+            {
+              label: "Contributing",
+              link: "/contributing",
             },
           ],
           footerText:

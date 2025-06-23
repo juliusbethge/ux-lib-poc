@@ -21,6 +21,7 @@ src
 ├── components
 ├── content/docs
 |   ├── components
+|   ├── contributing
 |   └── getting-started
 └── registry/new-york
     ├── examples
@@ -33,6 +34,7 @@ src
 | `src/components`                 | Components used to create the documentation site.                                |
 | `src/content/docs/components`    | Individual documentation pages for each component.                               |
 | `src/content/getting-started`    | One off guides for the getting started section of the documentation.             |
+| `src/content/docs/contributing`  | Documentation for contributing to the registry.                                  |
 | `src/registry/new-york/examples` | Example files used for rendering in the documentation pages for each component.  |
 | `src/registry/new-york/items`    | The implementation of the component that will be installed in the users project. |
 
@@ -45,7 +47,7 @@ You can fork this repo by clicking the fork button in the top right corner of th
 ### Clone on your local machine
 
 ```bash
-git clone https://github.com/your-username/wds-shadcn-registry.git
+git clone git@github.com:WebDevSimplified/wds-shadcn-registry.git
 ```
 
 ### Navigate to project directory

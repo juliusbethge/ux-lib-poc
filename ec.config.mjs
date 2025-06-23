@@ -4,4 +4,12 @@ import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers"
 export default {
   themes: ["github-dark", "github-light"],
   plugins: [pluginLineNumbers()],
+  defaultProps: {
+    overridesByLang: {
+      bash: {
+        frame: false,
+        showLineNumbers: false,
+      },
+    },
+  },
 }
