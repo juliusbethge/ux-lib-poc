@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "shadcn build && astro build",
+    "build": "astro check && shadcn build && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "registry:build": "shadcn build",
@@ -15,6 +15,7 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.3.0",
     "@astrojs/starlight": "^0.34.4",
     "@astrojs/starlight-tailwind": "^4.0.1",
@@ -43,6 +44,7 @@
     "starlight-theme-black": "^0.6.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.9",
+    "typescript": "^5.8.3",
     "zod": "^3.25.67"
   },
   "devDependencies": {

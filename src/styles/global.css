@@ -141,6 +141,10 @@
     @apply border-none rounded-md;
   }
 
+  .expressive-code > figure.frame.has-title > pre {
+    @apply rounded-t-none;
+  }
+
   .sl-anchor-link:not(:where(.not-content *)) {
     @apply hidden;
   }

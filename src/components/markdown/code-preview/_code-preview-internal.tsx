@@ -1,10 +1,19 @@
 import { lazy, Suspense, type ReactNode } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import type { Demo } from "./code-preview.astro"
 import { Loader2Icon } from "lucide-react"
 import { OpenInV0Button } from "@/components/open-in-v0-button"
 import { SERVER_URL } from "astro:env/client"
+
+export type Demo =
+  | "loading-swap/basic"
+  | "loading-swap/large-component"
+  | "action-button/basic"
+  | "action-button/default"
+  | "action-button/error"
+  | "action-button/require-are-you-sure"
+  | "number-input/basic"
+  | "number-input/form"
 
 export function CodePreviewInternal({
   demo,

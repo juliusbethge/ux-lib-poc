@@ -5,8 +5,8 @@ description: A button that performs an action when clicked and optionally asks f
 
 import { ActionButton } from "@/registry/new-york/items/action-button/components/action-button"
 import CodePreview from "@/components/markdown/code-preview/code-preview.astro"
-import CliCommandCode from "@/components/markdown//cli-command-code/cli-command-code.astro"
 import { Toaster } from "@/components/ui/sonner"
+import Installation from "@/components/markdown/installation-tabs/installation-tabs.astro"
 
 <Toaster client:load />
 
@@ -14,7 +14,7 @@ import { Toaster } from "@/components/ui/sonner"
 
 ## Installation
 
-<CliCommandCode componentName="action-button" />
+<Installation registryItem="action-button" />
 
 ## Usage
 
