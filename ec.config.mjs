@@ -7,7 +7,7 @@ export default {
   defaultProps: {
     overridesByLang: {
       bash: {
-        frame: false,
+        frame: "none",
         showLineNumbers: false,
       },
     },

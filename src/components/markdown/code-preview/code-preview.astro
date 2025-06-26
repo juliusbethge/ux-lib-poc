@@ -1,18 +1,10 @@
 ---
 import { Code } from "@astrojs/starlight/components"
-import { CodePreviewInternal } from "./_code-preview-internal"
 import fs from "node:fs/promises"
-
-type DemoTypes =
-  | "loading-swap/basic"
-  | "action-button/basic"
-  | "action-button/default"
-  | "action-button/require-are-you-sure"
-  | "action-button/error"
-  | "number-input/basic"
-  | "number-input/form"
-
-export type Demo = DemoTypes
+import {
+  type Demo,
+  CodePreviewInternal,
+} from "@/components/markdown/code-preview/_code-preview-internal"
 
 type Props = { demo: Demo }
 
