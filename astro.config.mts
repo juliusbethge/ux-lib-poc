@@ -4,24 +4,30 @@ import starlight from "@astrojs/starlight"
 import react from "@astrojs/react"
 import tailwindcss from "@tailwindcss/vite"
 import starlightThemeBlack from "starlight-theme-black"
-
 import { loadEnv } from "vite"
 
 if (process.env.NODE_ENV == null) throw new Error("NODE_ENV is not set.")
 
-const { GITHUB_REPO_URL, DEPLOY_PRIME_URL } = loadEnv(
+const { GITHUB_REPO_URL, DEPLOY_PRIME_URL, URL } = loadEnv(
   process.env.NODE_ENV,
   process.cwd(),
   "",
 )
 
+const SERVER_URL =
+  process.env.NODE_ENV === "production" ? URL : DEPLOY_PRIME_URL
+
 // https://astro.build/config
 export default defineConfig({
-  site: DEPLOY_PRIME_URL,
+  site: SERVER_URL,
   env: {
     schema: {
       GITHUB_REPO_URL: envField.string({ context: "client", access: "public" }),
       DEPLOY_PRIME_URL: envField.string({
+        context: "client",
+        access: "public",
+      }),
+      URL: envField.string({
         context: "client",
         access: "public",
       }),
