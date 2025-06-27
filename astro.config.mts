@@ -7,19 +7,24 @@ import starlightThemeBlack from "starlight-theme-black"
 
 import { loadEnv } from "vite"
 
-const { GITHUB_REPO_URL, SERVER_URL } = loadEnv(
-  process.env.NODE_ENV!,
+if (process.env.NODE_ENV == null) throw new Error("NODE_ENV is not set.")
+
+const { GITHUB_REPO_URL, DEPLOY_URL } = loadEnv(
+  process.env.NODE_ENV,
   process.cwd(),
   "",
 )
 
 // https://astro.build/config
 export default defineConfig({
-  site: SERVER_URL,
+  site: DEPLOY_URL,
   env: {
     schema: {
       GITHUB_REPO_URL: envField.string({ context: "client", access: "public" }),
-      SERVER_URL: envField.string({ context: "client", access: "public" }),
+      DEPLOY_URL: envField.string({
+        context: "client",
+        access: "public",
+      }),
     },
   },
   integrations: [

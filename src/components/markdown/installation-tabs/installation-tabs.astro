@@ -6,10 +6,14 @@ import type {
   RegistryFileType,
   RegistryItemSchema,
 } from "@/types/shadcn-registry"
-import { SERVER_URL } from "astro:env/client"
+import { DEPLOY_URL } from "astro:env/client"
 import { ManualInstallCodeCard } from "@/components/manual-install-code-card"
 
-type RegistryItem = "loading-swap" | "action-button" | "number-input"
+type RegistryItem =
+  | "action-button"
+  | "loading-swap"
+  | "multi-select"
+  | "number-input"
 
 type Props = { registryItem: RegistryItem }
 
@@ -38,7 +42,7 @@ const registryDependencies = module.registryDependencies
       const name = dep.split("/").pop()?.split(".")[0]?.replace("-", " ")
       return {
         name,
-        href: `${SERVER_URL}/components/${name}`,
+        href: `${DEPLOY_URL}/components/${name}`,
       }
     } else {
       // This is a shadcn/ui dependency.
@@ -80,7 +84,7 @@ function getFileLocationFromType(type: RegistryFileType) {
     <CliCommandCode
       slot="cliSteps"
       action="run"
-      command={`shadcn@latest add ${SERVER_URL}/r/${registryItem}.json`}
+      command={`shadcn@latest add ${DEPLOY_URL}/r/${registryItem}.json`}
     />
     <div class="flex flex-col gap-8">
       {
@@ -97,7 +101,7 @@ function getFileLocationFromType(type: RegistryFileType) {
                     href={dep.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="underline underline-offset-3 capitalize"
+                    class="capitalize underline underline-offset-3"
                   >
                     {dep.name}
                   </a>

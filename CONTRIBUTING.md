@@ -15,7 +15,7 @@ This repository is an Astro Starlight project.
 
 This repository is structured as follows:
 
-```
+```text
 src
 ├── assets
 ├── components

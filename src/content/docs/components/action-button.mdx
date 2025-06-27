@@ -3,12 +3,9 @@ title: Action Button
 description: A button that performs an action when clicked and optionally asks for user confirmation.
 ---
 
-import { ActionButton } from "@/registry/new-york/items/action-button/components/action-button"
 import CodePreview from "@/components/markdown/code-preview/code-preview.astro"
-import { Toaster } from "@/components/ui/sonner"
 import Installation from "@/components/markdown/installation-tabs/installation-tabs.astro"
-
-<Toaster client:load />
+import ToastProvider from "@/components/markdown/toast-provider.astro"
 
 <CodePreview demo="action-button/basic" />
 
@@ -48,3 +45,5 @@ const settings = { name: "Kyle" }
 ### With Error
 
 <CodePreview demo="action-button/error" />
+
+<ToastProvider />

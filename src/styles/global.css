@@ -138,7 +138,7 @@
   }
 
   .expressive-code > figure.frame > pre {
-    @apply border-none rounded-md;
+    @apply rounded-md border-none;
   }
 
   .expressive-code > figure.frame.has-title > pre {
@@ -159,7 +159,7 @@
   }
 
   .entry-title:not(a) {
-    @apply text-muted-foreground !font-normal;
+    @apply !font-normal text-muted-foreground;
   }
 
   .container-sidebar-entry > a {
@@ -176,7 +176,7 @@
 
     & > .title,
     & > .tagline {
-      @apply text-center w-full;
+      @apply w-full text-center;
     }
 
     & > .actions {

@@ -3,15 +3,20 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Loader2Icon } from "lucide-react"
 import { OpenInV0Button } from "@/components/open-in-v0-button"
-import { SERVER_URL } from "astro:env/client"
+import { DEPLOY_URL } from "astro:env/client"
 
 export type Demo =
-  | "loading-swap/basic"
-  | "loading-swap/large-component"
   | "action-button/basic"
   | "action-button/default"
   | "action-button/error"
   | "action-button/require-are-you-sure"
+  | "loading-swap/basic"
+  | "loading-swap/large-component"
+  | "multi-select/basic"
+  | "multi-select/customize-badges"
+  | "multi-select/form"
+  | "multi-select/overflow-behavior"
+  | "multi-select/search-configuration"
   | "number-input/basic"
   | "number-input/form"
 
@@ -35,18 +40,18 @@ export function CodePreviewInternal({
           Code
         </TabsTrigger>
         <OpenInV0Button
-          url={`${SERVER_URL}/r/${componentName}.json`}
+          url={`${DEPLOY_URL}/r/${componentName}.json`}
           className="ml-auto"
         />
       </TabsList>
-      <Card className="h-[450px] overflow-y-auto p-0 rounded-lg no-scrollbar bg-transparent">
+      <Card className="no-scrollbar h-[450px] overflow-y-auto rounded-lg bg-transparent p-0">
         <CardContent className="h-full p-0">
           <TabsContent
             value="preview"
-            className="flex items-center justify-center h-full p-4 [&_input]:max-w-xs"
+            className="flex h-full items-center justify-center p-4 [&_input]:max-w-xs"
           >
             <Suspense
-              fallback={<Loader2Icon className="animate-spin size-16" />}
+              fallback={<Loader2Icon className="size-16 animate-spin" />}
             >
               <Component />
             </Suspense>

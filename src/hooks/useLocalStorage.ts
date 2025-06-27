@@ -10,7 +10,7 @@ export function useLocalStorage<T>(
     // Update with useEffect instead of using the initial value function of useState because of SSR hydration issues
     const item = window.localStorage.getItem(key)
     if (item) setStoredValue(JSON.parse(item))
-  }, [])
+  }, [key])
 
   const setValue = (value: T) => {
     const valueToStore = value instanceof Function ? value(storedValue) : value
