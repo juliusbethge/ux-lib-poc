@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Loader2Icon } from "lucide-react"
 import { OpenInV0Button } from "@/components/open-in-v0-button"
-import { SERVER_URL } from "astro:env/client"
+import { URL } from "astro:env/client"
 
 export type Demo =
   | "action-button/basic"
@@ -40,7 +40,7 @@ export function CodePreviewInternal({
           Code
         </TabsTrigger>
         <OpenInV0Button
-          url={`${SERVER_URL}/r/${componentName}.json`}
+          url={`${URL}/r/${componentName}.json`}
           className="ml-auto"
         />
       </TabsList>
