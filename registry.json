@@ -42,6 +42,18 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "multi-select",
+      "description": "A multi-select input that emulates the Shadcn Select component as closely as possible.",
+      "type": "registry:component",
+      "registryDependencies": ["popover", "command", "badge", "button"],
+      "files": [
+        {
+          "path": "src/registry/new-york/items/multi-select/components/multi-select.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

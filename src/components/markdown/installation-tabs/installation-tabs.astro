@@ -9,7 +9,11 @@ import type {
 import { SERVER_URL } from "astro:env/client"
 import { ManualInstallCodeCard } from "@/components/manual-install-code-card"
 
-type RegistryItem = "loading-swap" | "action-button" | "number-input"
+type RegistryItem =
+  | "action-button"
+  | "loading-swap"
+  | "multi-select"
+  | "number-input"
 
 type Props = { registryItem: RegistryItem }
 

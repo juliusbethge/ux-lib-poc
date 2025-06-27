@@ -3,12 +3,9 @@ title: Number Input
 description: An input that returns a number value and automatically handles invalid inputs.
 ---
 
-import { NumberInput } from "@/registry/new-york/items/number-input/components/number-input"
 import CodePreview from "@/components/markdown/code-preview/code-preview.astro"
-import { Toaster } from "@/components/ui/sonner"
 import Installation from "@/components/markdown/installation-tabs/installation-tabs.astro"
-
-<Toaster client:load />
+import ToastProvider from "@/components/markdown/toast-provider.astro"
 
 <CodePreview demo="number-input/basic" />
 
@@ -34,3 +31,5 @@ const [value, setValue] = useState<number | null>(null)
 ### Form
 
 <CodePreview demo="number-input/form" />
+
+<ToastProvider />
