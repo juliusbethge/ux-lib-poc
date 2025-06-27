@@ -10,7 +10,7 @@ import {
 export function CustomizeBadgesMultiSelect() {
   return (
     <MultiSelect>
-      <MultiSelectTrigger className="max-w-[400px] w-full">
+      <MultiSelectTrigger className="w-full max-w-[400px]">
         <MultiSelectValue placeholder="Select fruit..." clickToRemove={false} />
       </MultiSelectTrigger>
       <MultiSelectContent>

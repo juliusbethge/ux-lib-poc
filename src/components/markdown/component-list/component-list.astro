@@ -25,14 +25,14 @@ const components = Object.entries(
 ---
 
 <ul
-  class="m-0 list-none grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-foreground/80 lg:text-base text-lg"
+  class="m-0 grid list-none grid-cols-1 gap-4 text-lg text-foreground/80 md:grid-cols-2 lg:grid-cols-3 lg:text-base"
 >
   {
     components.map(({ fileName, title }) => {
       return (
         <li>
           <a
-            class="no-underline hover:underline w-full block"
+            class="block w-full no-underline hover:underline"
             href={`/components/${fileName}`}
           >
             {title}

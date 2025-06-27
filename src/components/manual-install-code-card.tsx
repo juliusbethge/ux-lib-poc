@@ -17,10 +17,10 @@ export function ManualInstallCodeCard({
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <Card className="not-content bg-code p-0 overflow-hidden">
+    <Card className="not-content overflow-hidden bg-code p-0">
       <CardContent className="p-0">
-        <div className="flex items-center border-b border-input py-1 px-3">
-          <Icon className="size-4 text-muted-foreground mr-2" />
+        <div className="flex items-center border-b border-input px-3 py-1">
+          <Icon className="mr-2 size-4 text-muted-foreground" />
           <div className="font-mono text-muted-foreground">{filePath}</div>
           <Button
             variant="ghost"
@@ -41,7 +41,7 @@ export function ManualInstallCodeCard({
           {!isExpanded && (
             <button
               onClick={() => setIsExpanded(true)}
-              className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-code via-code/70 to-transparent via-70% h-16 text-muted-foreground text-sm"
+              className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-code via-code/70 via-70% to-transparent text-sm text-muted-foreground"
             >
               Expand
             </button>

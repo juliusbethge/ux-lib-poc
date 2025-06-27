@@ -7,8 +7,10 @@ import starlightThemeBlack from "starlight-theme-black"
 
 import { loadEnv } from "vite"
 
+if (process.env.NODE_ENV == null) throw new Error("NODE_ENV is not set.")
+
 const { GITHUB_REPO_URL, SERVER_URL } = loadEnv(
-  process.env.NODE_ENV!,
+  process.env.NODE_ENV,
   process.cwd(),
   "",
 )

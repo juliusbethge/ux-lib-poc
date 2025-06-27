@@ -10,7 +10,7 @@ import {
 
 export function SearchConfigurationMultiSelect() {
   return (
-    <div className="flex flex-col gap-8 w-[400px]">
+    <div className="flex w-[400px] flex-col gap-8">
       <div className="flex flex-col gap-2">
         <Label>Disabled Search</Label>
         <MultiSelect>

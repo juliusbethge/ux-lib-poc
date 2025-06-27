@@ -44,14 +44,14 @@ export function CodePreviewInternal({
           className="ml-auto"
         />
       </TabsList>
-      <Card className="h-[450px] overflow-y-auto p-0 rounded-lg no-scrollbar bg-transparent">
+      <Card className="no-scrollbar h-[450px] overflow-y-auto rounded-lg bg-transparent p-0">
         <CardContent className="h-full p-0">
           <TabsContent
             value="preview"
-            className="flex items-center justify-center h-full p-4 [&_input]:max-w-xs"
+            className="flex h-full items-center justify-center p-4 [&_input]:max-w-xs"
           >
             <Suspense
-              fallback={<Loader2Icon className="animate-spin size-16" />}
+              fallback={<Loader2Icon className="size-16 animate-spin" />}
             >
               <Component />
             </Suspense>

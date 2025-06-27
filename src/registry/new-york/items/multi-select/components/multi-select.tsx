@@ -114,7 +114,7 @@ export function MultiSelectTrigger({
         role={props.role ?? "combobox"}
         aria-expanded={props["aria-expanded"] ?? open}
         className={cn(
-          "min-h-9 h-auto border-input data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex w-fit items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-1.5 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+          "flex h-auto min-h-9 w-fit items-center justify-between gap-2 overflow-hidden rounded-md border border-input bg-transparent px-3 py-1.5 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[placeholder]:text-muted-foreground dark:bg-input/30 dark:hover:bg-input/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground",
           className,
         )}
       >
@@ -144,7 +144,11 @@ export function MultiSelectValue({
   const overflowRef = useRef<HTMLDivElement>(null)
   const itemsRef = useRef<Set<HTMLElement>>(new Set())
 
-  function checkOverflow() {
+  const shouldWrap =
+    overflowBehavior === "wrap" ||
+    (overflowBehavior === "wrap-when-open" && open)
+
+  const checkOverflow = useCallback(() => {
     if (valueRef.current == null) return
 
     const containerElement = valueRef.current
@@ -163,7 +167,7 @@ export function MultiSelectValue({
       overflowElement?.style.removeProperty("display")
     }
     setOverflowAmount(amount)
-  }
+  }, [])
 
   useEffect(() => {
     if (valueRef.current == null) return
@@ -172,29 +176,25 @@ export function MultiSelectValue({
     observer.observe(valueRef.current)
 
     return () => observer.disconnect()
-  }, [])
+  }, [checkOverflow])
 
   useLayoutEffect(() => {
     checkOverflow()
-  }, [selectedValues, open])
+  }, [selectedValues, open, checkOverflow])
 
   if (selectedValues.size === 0 && placeholder) {
     return (
-      <span className="text-muted-foreground font-normal">{placeholder}</span>
+      <span className="font-normal text-muted-foreground">{placeholder}</span>
     )
   }
-
-  const shouldWrap =
-    overflowBehavior === "wrap" ||
-    (overflowBehavior === "wrap-when-open" && open)
 
   return (
     <div
       {...props}
       ref={valueRef}
       className={cn(
-        "flex gap-1.5 overflow-hidden",
-        shouldWrap && "flex-wrap h-full",
+        "flex w-full gap-1.5 overflow-hidden",
+        shouldWrap && "h-full flex-wrap",
         className,
       )}
     >
@@ -211,7 +211,7 @@ export function MultiSelectValue({
               }
             }}
             variant="outline"
-            className="flex items-center gap-1 group"
+            className="group flex items-center gap-1"
             key={value}
             onClick={
               clickToRemove
@@ -258,7 +258,7 @@ export function MultiSelectContent({
           <CommandList>{children}</CommandList>
         </Command>
       </div>
-      <PopoverContent className="p-0 min-w-[var(--radix-popover-trigger-width)]">
+      <PopoverContent className="min-w-[var(--radix-popover-trigger-width)] p-0">
         <Command {...props}>
           {canSearch ? (
             <CommandInput

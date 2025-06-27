@@ -10,7 +10,7 @@ import {
 export function BasicMultiSelect() {
   return (
     <MultiSelect>
-      <MultiSelectTrigger className="max-w-[400px] w-full">
+      <MultiSelectTrigger className="w-full max-w-[400px]">
         <MultiSelectValue placeholder="Select frameworks..." />
       </MultiSelectTrigger>
       <MultiSelectContent>

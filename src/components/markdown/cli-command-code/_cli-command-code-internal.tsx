@@ -45,8 +45,8 @@ export function CliCommandCodeInternal({
           onValueChange={setSelectedTab}
           className="gap-0"
         >
-          <div className="flex items-center border-b border-input py-1 px-3">
-            <div className="size-4 flex items-center justify-center bg-foreground/70 mr-2">
+          <div className="flex items-center border-b border-input px-3 py-1">
+            <div className="mr-2 flex size-4 items-center justify-center bg-foreground/70">
               <TerminalIcon className="size-3 text-code" />
             </div>
             <TabsList className="font-mono">
@@ -54,7 +54,7 @@ export function CliCommandCodeInternal({
                 <TabsTrigger
                   key={index}
                   value={command.label}
-                  className="data-[state=active]:bg-muted/50 data-[state=active]:border-input"
+                  className="data-[state=active]:border-input data-[state=active]:bg-muted/50"
                 >
                   {command.label}
                 </TabsTrigger>
@@ -65,7 +65,7 @@ export function CliCommandCodeInternal({
                 <Button
                   onClick={handleCopy}
                   variant="ghost"
-                  className="ml-auto text-muted-foreground size-8"
+                  className="ml-auto size-8 text-muted-foreground"
                 >
                   {copyState === "idle" ? (
                     <ClipboardIcon />
@@ -86,7 +86,7 @@ export function CliCommandCodeInternal({
               <TabsContent
                 key={command.label}
                 value={command.label}
-                className="overflow-x-auto text-muted-foreground py-3.5 no-scrollbar"
+                className="no-scrollbar overflow-x-auto py-3.5 text-muted-foreground"
               >
                 <pre>
                   <code className="px-4">{command.code}</code>

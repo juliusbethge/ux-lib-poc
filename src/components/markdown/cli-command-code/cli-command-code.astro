@@ -1,8 +1,7 @@
 ---
 import { CliCommandCodeInternal } from "./_cli-command-code-internal"
 
-const actions = ["install", "run"] as const
-type Action = (typeof actions)[number]
+type Action = "install" | "run"
 const packageManagers = ["pnpm", "npm", "yarn", "bun"] as const
 type PackageManager = (typeof packageManagers)[number]
 

@@ -25,7 +25,7 @@ export function OverflowBehaviorMultiSelect() {
     useState<OverflowBehavior>("wrap-when-open")
 
   return (
-    <div className="flex flex-col gap-8 w-[400px]">
+    <div className="flex w-[400px] flex-col gap-8">
       <div className="flex flex-col gap-2">
         <Label>Overflow Behavior</Label>
         <Select
