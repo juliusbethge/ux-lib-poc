@@ -58,17 +58,17 @@ export function MultiSelect({
   const [items, setItems] = useState<Map<string, ReactNode>>(new Map())
 
   function toggleValue(value: string) {
-    setSelectedValues(prev => {
+    const getNewSet = (prev: Set<string>) => {
       const newSet = new Set(prev)
       if (newSet.has(value)) {
         newSet.delete(value)
       } else {
         newSet.add(value)
       }
-
-      onValuesChange?.([...newSet])
       return newSet
-    })
+    }
+    setSelectedValues(getNewSet)
+    onValuesChange?.([...getNewSet(selectedValues)])
   }
 
   const onItemAdded = useCallback((value: string, label: ReactNode) => {
@@ -130,13 +130,11 @@ export function MultiSelectValue({
   clickToRemove = true,
   className,
   overflowBehavior = "wrap-when-open",
-  overflowContent = (overflowAmount: number) => `+${overflowAmount}`,
   ...props
 }: {
   placeholder?: string
   clickToRemove?: boolean
   overflowBehavior?: "wrap" | "wrap-when-open" | "cutoff"
-  overflowContent?: (overflowAmount: number) => ReactNode
 } & Omit<ComponentPropsWithoutRef<"div">, "children">) {
   const { selectedValues, toggleValue, items, open } = useMultiSelectContext()
   const [overflowAmount, setOverflowAmount] = useState(0)
@@ -147,6 +145,11 @@ export function MultiSelectValue({
   const shouldWrap =
     overflowBehavior === "wrap" ||
     (overflowBehavior === "wrap-when-open" && open)
+
+  useEffect(() => {
+    if (!shouldWrap) return
+    itemsRef.current.forEach(child => child.style.removeProperty("display"))
+  }, [shouldWrap])
 
   const checkOverflow = useCallback(() => {
     if (valueRef.current == null) return
@@ -180,7 +183,7 @@ export function MultiSelectValue({
 
   useLayoutEffect(() => {
     checkOverflow()
-  }, [selectedValues, open, checkOverflow])
+  }, [selectedValues, checkOverflow])
 
   if (selectedValues.size === 0 && placeholder) {
     return (
@@ -235,7 +238,7 @@ export function MultiSelectValue({
         variant="outline"
         ref={overflowRef}
       >
-        {overflowContent(overflowAmount)}
+        +{overflowAmount}
       </Badge>
     </div>
   )

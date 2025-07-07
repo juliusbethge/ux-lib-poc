@@ -21,7 +21,7 @@ const formSchema = z.object({
   favoriteNumber: z.number().min(1).max(100).nullable(),
 })
 
-export function InputForm() {
+export function NumberInputForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {

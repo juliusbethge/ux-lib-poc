@@ -26,7 +26,7 @@ const formSchema = z.object({
   favoriteFrameworks: z.array(z.string()).min(1, "Required"),
 })
 
-export function InputForm() {
+export function MultiSelectForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
