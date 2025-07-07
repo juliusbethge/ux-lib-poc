@@ -56,10 +56,7 @@ export function OverflowBehaviorMultiSelect() {
           ]}
         >
           <MultiSelectTrigger className="w-full">
-            <MultiSelectValue
-              overflowBehavior={overflowBehavior}
-              overflowContent={a => (a === 1 ? `+${a} other` : `+${a} others`)}
-            />
+            <MultiSelectValue overflowBehavior={overflowBehavior} />
           </MultiSelectTrigger>
           <MultiSelectContent>
             <MultiSelectGroup>
