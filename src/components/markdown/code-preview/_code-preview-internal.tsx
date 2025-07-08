@@ -19,6 +19,8 @@ export type Demo =
   | "multi-select/search-configuration"
   | "number-input/basic"
   | "number-input/form"
+  | "password-input/basic"
+  | "password-input/form"
 
 export function CodePreviewInternal({
   demo,
@@ -48,7 +50,7 @@ export function CodePreviewInternal({
         <CardContent className="h-full p-0">
           <TabsContent
             value="preview"
-            className="flex h-full items-center justify-center p-4 [&_input]:max-w-xs"
+            className="flex h-full items-center justify-center p-4"
           >
             <Suspense
               fallback={<Loader2Icon className="size-16 animate-spin" />}
