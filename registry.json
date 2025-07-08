@@ -54,6 +54,18 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "password-input",
+      "description": "An input that can toggle visibility of the password text.",
+      "type": "registry:component",
+      "registryDependencies": ["input", "button"],
+      "files": [
+        {
+          "path": "src/registry/new-york/items/password-input/components/password-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
