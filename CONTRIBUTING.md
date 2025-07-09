@@ -68,6 +68,12 @@ git checkout -b my-new-branch
 npm i
 ```
 
+### Copy `.env.example` to `.env`
+
+```bash
+cp .env.example .env
+```
+
 ### Run the development server
 
 ```bash
