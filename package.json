@@ -54,7 +54,7 @@
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.9",
     "typescript": "^5.8.3",
-    "zod": "^3.25.75"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@eslint/css": "^0.9.0",
