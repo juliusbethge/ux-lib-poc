@@ -183,7 +183,7 @@ export function MultiSelectValue({
 
   useLayoutEffect(() => {
     checkOverflow()
-  }, [selectedValues, checkOverflow])
+  }, [selectedValues, checkOverflow, open])
 
   if (selectedValues.size === 0 && placeholder) {
     return (
