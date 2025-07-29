@@ -140,61 +140,66 @@ export function MultiSelectValue({
   const [overflowAmount, setOverflowAmount] = useState(0)
   const valueRef = useRef<HTMLDivElement>(null)
   const overflowRef = useRef<HTMLDivElement>(null)
-  const itemsRef = useRef<Set<HTMLElement>>(new Set())
 
   const shouldWrap =
     overflowBehavior === "wrap" ||
     (overflowBehavior === "wrap-when-open" && open)
-
-  useEffect(() => {
-    if (!shouldWrap) return
-    itemsRef.current.forEach(child => child.style.removeProperty("display"))
-  }, [shouldWrap])
 
   const checkOverflow = useCallback(() => {
     if (valueRef.current == null) return
 
     const containerElement = valueRef.current
     const overflowElement = overflowRef.current
+    const items = containerElement.querySelectorAll<HTMLElement>(
+      "[data-selected-item]",
+    )
 
     if (overflowElement != null) overflowElement.style.display = "none"
-    itemsRef.current.forEach(child => child.style.removeProperty("display"))
+    items.forEach(child => child.style.removeProperty("display"))
     let amount = 0
-    for (let i = itemsRef.current.size - 1; i >= 0; i--) {
-      const child = [...itemsRef.current][i]
+    for (let i = items.length - 1; i >= 0; i--) {
+      const child = items[i]
       if (containerElement.scrollWidth <= containerElement.clientWidth) {
         break
       }
-      amount = itemsRef.current.size - i
+      amount = items.length - i
       child.style.display = "none"
       overflowElement?.style.removeProperty("display")
     }
     setOverflowAmount(amount)
   }, [])
 
-  useEffect(() => {
-    if (valueRef.current == null) return
-
-    const observer = new ResizeObserver(checkOverflow)
-    observer.observe(valueRef.current)
-
-    return () => observer.disconnect()
-  }, [checkOverflow])
-
   useLayoutEffect(() => {
     checkOverflow()
-  }, [selectedValues, checkOverflow, open])
+  }, [selectedValues, checkOverflow, shouldWrap])
+
+  const handleResize = useCallback(
+    (node: HTMLDivElement) => {
+      valueRef.current = node
+
+      const observer = new ResizeObserver(checkOverflow)
+      observer.observe(node)
+
+      return () => {
+        observer.disconnect()
+        valueRef.current = null
+      }
+    },
+    [checkOverflow],
+  )
 
   if (selectedValues.size === 0 && placeholder) {
     return (
-      <span className="font-normal text-muted-foreground">{placeholder}</span>
+      <span className="min-w-0 overflow-hidden font-normal text-muted-foreground">
+        {placeholder}
+      </span>
     )
   }
 
   return (
     <div
       {...props}
-      ref={valueRef}
+      ref={handleResize}
       className={cn(
         "flex w-full gap-1.5 overflow-hidden",
         shouldWrap && "h-full flex-wrap",
@@ -205,15 +210,8 @@ export function MultiSelectValue({
         .filter(value => items.has(value))
         .map(value => (
           <Badge
-            ref={el => {
-              if (el == null) return
-
-              itemsRef.current.add(el)
-              return () => {
-                itemsRef.current.delete(el)
-              }
-            }}
             variant="outline"
+            data-selected-item
             className="group flex items-center gap-1"
             key={value}
             onClick={
@@ -270,7 +268,7 @@ export function MultiSelectContent({
               }
             />
           ) : (
-            <button autoFocus aria-hidden="true" className="sr-only" />
+            <button autoFocus className="sr-only" />
           )}
           <CommandList>
             {canSearch && (
