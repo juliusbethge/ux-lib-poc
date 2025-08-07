@@ -3,22 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Loader2Icon } from "lucide-react"
 
-export type Demo =
-  | "action-button/basic"
-  | "action-button/default"
-  | "action-button/error"
-  | "action-button/require-are-you-sure"
-  | "loading-swap/basic"
-  | "loading-swap/large-component"
-  | "multi-select/basic"
-  | "multi-select/customize-badges"
-  | "multi-select/form"
-  | "multi-select/overflow-behavior"
-  | "multi-select/search-configuration"
-  | "number-input/basic"
-  | "number-input/form"
-  | "password-input/basic"
-  | "password-input/form"
+export type Demo = ""
 
 export function CodePreviewInternal({
   demo,

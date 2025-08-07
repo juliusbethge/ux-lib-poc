@@ -24,6 +24,8 @@
     "@astrojs/react": "^4.3.0",
     "@astrojs/starlight": "^0.35.2",
     "@astrojs/starlight-tailwind": "^4.0.1",
+    "@db-ux/db-theme": "^4.0.0",
+    "@db-ux/react-core-components": "^3.0.3",
     "@expressive-code/plugin-line-numbers": "^0.41.3",
     "@fontsource/geist-mono": "^5.2.6",
     "@fontsource/geist-sans": "^5.2.5",

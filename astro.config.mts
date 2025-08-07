@@ -43,7 +43,11 @@ export default defineConfig({
           href: GITHUB_REPO_URL,
         },
       ],
-      customCss: ["./src/styles/global.css"],
+      customCss: [
+        "./src/styles/global.css",
+        "@db-ux/core-components/build/styles/relative.css",
+        "@db-ux/core-foundations/build/tailwind/theme/index.css",
+      ],
       sidebar: [
         {
           label: "Getting Started",
