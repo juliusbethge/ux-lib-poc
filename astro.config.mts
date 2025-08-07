@@ -35,63 +35,12 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      components: {
-        Head: "./src/components/overrides/head.astro",
-      },
-      head: [
-        // Add ICO favicon fallback for Safari.
-        {
-          tag: "link",
-          attrs: {
-            rel: "icon",
-            href: "/favicon.ico",
-          },
-        },
-        // Add dark mode favicon.
-        {
-          tag: "link",
-          attrs: {
-            rel: "icon",
-            href: "/favicon-dark.svg",
-            media: "(prefers-color-scheme: dark)",
-            type: "image/svg+xml",
-          },
-        },
-        // Add light mode favicon.
-        {
-          tag: "link",
-          attrs: {
-            rel: "icon",
-            href: "/favicon.svg",
-            media: "(prefers-color-scheme: light)",
-            type: "image/svg+xml",
-          },
-        },
-      ],
-      title: "WDS Shadcn Registry",
-      editLink: {
-        baseUrl: `${GITHUB_REPO_URL}/tree/main`,
-      },
-      logo: {
-        dark: "./src/assets/logo/dark.png",
-        light: "./src/assets/logo/light.png",
-        replacesTitle: true,
-      },
+      title: "UX-Lib-PoC",
       social: [
         {
           icon: "github",
           label: "GitHub",
           href: GITHUB_REPO_URL,
-        },
-        {
-          icon: "youtube",
-          label: "YouTube",
-          href: "https://www.youtube.com/@WebDevSimplified",
-        },
-        {
-          icon: "x.com",
-          label: "X.com",
-          href: "https://x.com/DevSimplified",
         },
       ],
       customCss: ["./src/styles/global.css"],
@@ -107,43 +56,11 @@ export default defineConfig({
           label: "Components",
           autogenerate: { directory: "components" },
         },
-        {
-          label: "Contributing",
-          items: [
-            { label: "Introduction", slug: "contributing" },
-            {
-              label: "Component Request",
-              slug: "contributing/component-request",
-            },
-            {
-              label: "Feature Request",
-              slug: "contributing/feature-request",
-            },
-            {
-              label: "Contributing Code",
-              slug: "contributing/contributing-code",
-            },
-          ],
-        },
       ],
       plugins: [
         starlightThemeBlack({
-          navLinks: [
-            {
-              label: "Docs",
-              link: "/getting-started/installation",
-            },
-            {
-              label: "Components",
-              link: "/components",
-            },
-            {
-              label: "Contributing",
-              link: "/contributing",
-            },
-          ],
           footerText:
-            "Built by [Web Dev Simplified](https://webdevsimplified.com) for use with [Shadcn](https://ui.shadcn.com)",
+            "Dies ist ein Prototyp für eine potentielle C2S UI Library",
         }),
       ],
     }),
