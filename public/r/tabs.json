@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "type": "registry:component",
+  "files": [
+    {
+      "path": "src/registry/new-york/items/tabs/components/tabs.tsx",
+      "content": "import {\n  DBTabItem,\n  DBTabList,\n  DBTabPanel,\n  DBTabs,\n} from \"@db-ux/react-core-components\"\n\nexport function Tabs() {\n  return (\n    <DBTabs>\n      <DBTabList>\n        <DBTabItem>Tab 1</DBTabItem>\n        <DBTabItem>Tab 2</DBTabItem>\n        <DBTabItem>Tab 3</DBTabItem>\n      </DBTabList>\n      <DBTabPanel>Tab Panel 1</DBTabPanel>\n      <DBTabPanel>Tab Panel 2</DBTabPanel>\n      <DBTabPanel>Tab Panel 3</DBTabPanel>\n    </DBTabs>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

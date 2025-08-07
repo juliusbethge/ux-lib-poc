@@ -2,5 +2,16 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "UX-Lib-PoC",
   "homepage": "https://ux-lib-poc.juliusbethge.de",
-  "items": []
+  "items": [
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "src/registry/new-york/items/tabs/components/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
 }

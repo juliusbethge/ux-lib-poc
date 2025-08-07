@@ -43,11 +43,7 @@ export default defineConfig({
           href: GITHUB_REPO_URL,
         },
       ],
-      customCss: [
-        "./src/styles/global.css",
-        "@db-ux/core-components/build/styles/relative.css",
-        "@db-ux/core-foundations/build/tailwind/theme/index.css",
-      ],
+      customCss: ["./src/styles/global.css"],
       sidebar: [
         {
           label: "Getting Started",
@@ -75,7 +71,7 @@ export default defineConfig({
     ssr: {
       // FIXME: Once starlight supports Zod 4 we can probably remove this.
       // Zod should normally be imported from astro, but I want my code to use its own zod version to reflect the version used in the shadcn components.
-      noExternal: ["zod"],
+      noExternal: ["zod", "@db-ux/react-core-components"],
     },
   },
 })
