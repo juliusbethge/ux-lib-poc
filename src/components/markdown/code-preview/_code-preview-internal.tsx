@@ -70,7 +70,7 @@ const IframePreview = ({ children }: { children: ReactNode }) => {
   )
 }
 
-export type Demo = "tabs/basic"
+export type Demo = "tabs/basic" | "badges/basic"
 
 export function CodePreviewInternal({
   demo,

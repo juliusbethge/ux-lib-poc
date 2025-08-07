@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "header",
+  "type": "registry:component",
+  "files": [
+    {
+      "path": "src/registry/new-york/items/header/components/header.tsx",
+      "content": "import {\n  DBBrand,\n  DBButton,\n  DBHeader,\n  DBLink,\n  DBNavigation,\n  DBNavigationItem,\n} from \"@db-ux/react-core-components\"\n\nexport function Header() {\n  return (\n    <DBHeader\n      brand={<DBBrand>DBHeader</DBBrand>}\n      metaNavigation={<DBLink href=\"#\">Imprint</DBLink>}\n      primaryAction={\n        <DBButton icon=\"magnifying_glass\" variant=\"ghost\" noText>\n          Search\n        </DBButton>\n      }\n      secondaryAction={\n        <DBButton icon=\"x_placeholder\" variant=\"ghost\" noText>\n          Profile\n        </DBButton>\n      }\n    >\n      <DBNavigation>\n        <DBNavigationItem icon=\"x_placeholder\">\n          <a href=\"#\">Link</a>\n        </DBNavigationItem>\n        <DBNavigationItem icon=\"x_placeholder\" disabled>\n          <a href=\"#\">Link disabled</a>\n        </DBNavigationItem>\n      </DBNavigation>\n    </DBHeader>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

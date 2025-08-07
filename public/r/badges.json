@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badges",
+  "type": "registry:component",
+  "files": [
+    {
+      "path": "src/registry/new-york/items/badges/components/badges.tsx",
+      "content": "import { DBBadge } from \"@db-ux/react-core-components\"\n\nexport function Badges() {\n  return (\n    <div>\n      <DBBadge>(Default) Adaptive</DBBadge>\n      <DBBadge semantic=\"critical\">Critical</DBBadge>\n      <DBBadge semantic=\"informational\">Informational</DBBadge>\n      <DBBadge semantic=\"warning\">Warning</DBBadge>\n      <DBBadge semantic=\"successful\">Successful</DBBadge>\n      <DBBadge semantic=\"neutral\">Neutral</DBBadge>\n    </div>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

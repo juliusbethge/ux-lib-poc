@@ -12,6 +12,16 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "badges",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "src/registry/new-york/items/badges/components/badges.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
