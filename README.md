@@ -1,15 +1,3 @@
-# WDS Shadcn Registry
+j# UX Library PoC
 
-A collection of accessible components built for use with Shadcn
-
-## Documentation
-
-Visit https://wds-shadcn-registry.netlify.app to view the documentation.
-
-## Contributing
-
-Please read the [contributing guide](/CONTRIBUTING.md).
-
-## License
-
-Licensed under the [MIT license](/LICENSE.md).
+This proof of concept should show how an internal UX-Library could be built on top of the DB-UX Library.
